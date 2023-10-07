@@ -1,11 +1,11 @@
 import socketio
-import aiohttp
 from aiohttp import web
 import datetime
 import time
 from utils import Message
 import utils
 import db
+import jsondb
 
 
 sio = socketio.AsyncServer(max_http_buffer_size=10_000)
@@ -26,13 +26,24 @@ async def index(request):
 def connect(sid, environ):
     print(sid, "has connected to the server.")
 
+
 @sio.event
 async def disconnect(sid):
     print(f"{sid} has disconnected from the server.")
 
 @sio.on('login')
 async def login(sid, data):
-    pass
+    accs = jsondb.load_item("accs.json")
+    acc_id = ""
+    for key in accs:
+        if accs[key]["username"] == data["username"] and accs[key]["password"] == data["password"]:
+            acc_id = key
+            online_clients[sid] = {"acc_id":acc_id, "name":data["username"]}
+
+@sio.on('logout')
+async def logout(sid):
+    del online_clients[sid]
+
 
 @sio.on('search')
 async def search(sid, data):
@@ -57,15 +68,16 @@ async def create_proj(sid, data):
     remove image
     must generate room & table
     '''
-    pass
+    table_id = jsondb.add_project("projects.json", data)
+    database.create_table(table_id)
 
 @sio.on('chat_enter')
 async def chat_enter(sid, room):
-    await sio.enter_room(room)
+    sio.enter_room(sid, room)
 
 @sio.on('chat_leave')
 async def chat_leave(sid, room):
-    await sio.leave_room(room)
+    sio.leave_room(sid, room)
 
 @sio.on('chat_load')
 async def chat_load(sid, data):
@@ -74,13 +86,17 @@ async def chat_load(sid, data):
     '''
     msgs = database.select_msgs(data["room_id"])
     msgs = utils.conv_from_msg(msgs)
-    return msgs
+    
+    sio.enter_room(sid, data['room_id'])
+    await sio.emit('chat_load',data=msgs,room=data['room_id'])
+    print(msgs)
 
 @sio.on('chat')
 async def chat(sid, data):
     '''
     returns a dict of chat
     '''
+    print(data)
     dt = datetime.datetime.now()
     unix = time.mktime(dt.timetuple())
     msg = Message(0, data["client_id"], data["message"], unix)

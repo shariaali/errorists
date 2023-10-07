@@ -32,14 +32,16 @@ class Message(NamedTuple):
     datetime:int
 
 def conv_to_msg(msgs:list):
-    to_return:list[Message]
+    to_return = []
+    if len(msgs) < 1:
+        return 0
     for item in msgs:
         msg = Message(item[0], item[1], item[2], item[3])
         to_return.append(msg)
     return to_return
 
 def conv_from_msg(msgs:list[Message]):
-    to_return:dict
+    to_return = {}
     for item in msgs:
         to_return[item.msg_id] = {"client_id":item.client_id, "message":item.message, "datetime":item.datetime}
     return to_return

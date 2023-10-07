@@ -21,7 +21,7 @@ def get_rand_id() -> str:
     id = ''.join(random.choice(string.ascii_uppercase + string.ascii_lowercase + string.digits) for _ in range(8))
     return id
 
-
+#delete?
 def all_online_clients(clients:dict, orig_sid) -> dict:
     '''
     Returns a dictionary containing details about all online clients.
@@ -34,13 +34,44 @@ def all_online_clients(clients:dict, orig_sid) -> dict:
             continue
         client_id = clients[sid]["online-id"]
         client_name = clients[sid]["name"]
-        #online_clients["clients"].append({"name":client_name, "id":client_id}) ###to make
+        #online_clients["clients"].append({"name":client_name, "id":client_id}) ###to make 
     return online_clients
 
-def add_projects(file, data):
+def add_project(file, data):
     #remove images here
-    id = get_rand_id()
-    json_data =  load_item(file)
+    json_data = load_item(file)
+    id:str
+    while True:
+        id = get_rand_id()
+        if id in json_data:
+            continue
+        break
+    img = f'./files/images/projects/{id}.png'
+    with open(img, 'wb') as file:
+        file.write(data["image"]["content"])
+
+    del data['images']
+    data['profile'] = img
     json_data[id] = data
     update_file(file, json_data)
+    return id #returns an id for server to create table
 
+def get_project(id, file):
+    json_data = load_item(file)
+    return json_data[id]
+
+def add_account(file, data):
+    json_data = load_item(file)
+    id:str
+    while True:
+        id = get_rand_id()
+        if id in json_data:
+            continue
+        break
+    json_data[id] = data
+    update_file(file, json_data)
+    return id ##???
+
+def get_account(id, file):
+    json_data = load_item(file)
+    return json_data[id]
