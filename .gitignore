@@ -1,9 +1,7 @@
 /.venv
 /start.bat
 /helper.py
-/files/index.html
 /files/css
-/files/js
 /files/fonts
 /files/contact.html
 /files/topics-detail.html
@@ -11,3 +9,4 @@
 /accs.json
 /projects.json
 /Messages.db
+/__pycache__

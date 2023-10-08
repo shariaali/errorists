@@ -8,7 +8,7 @@ import db
 import jsondb
 
 
-sio = socketio.AsyncServer(max_http_buffer_size=10_000)
+sio = socketio.AsyncServer(max_http_buffer_size=100_000)
 app = web.Application()
 sio.attach(app)
 
@@ -60,16 +60,22 @@ async def create_proj(sid, data):
     data = {
         "name": "project name",
         "description": "desc...",
-        "tags": [],
+        "tags": skill,
         "collaborators":[],
-        "image": {"name":"","content":bytearray}
+        "image": bytearray,
     }
-    save to files/images/projects/name.png
-    remove image
-    must generate room & table
     '''
     table_id = jsondb.add_project("projects.json", data)
+    print("Added project to database.")
     database.create_table(table_id)
+    print("Added room to database.")
+
+@sio.on('load_project')
+async def load_proj(sid, id):
+    project = jsondb.get_project(id,"projects.json")
+    await sio.emit('load_project', project, to=sid)
+    
+
 
 @sio.on('chat_enter')
 async def chat_enter(sid, room):

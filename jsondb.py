@@ -47,10 +47,10 @@ def add_project(file, data):
             continue
         break
     img = f'./files/images/projects/{id}.png'
-    with open(img, 'wb') as file:
-        file.write(data["image"]["content"])
+    with open(img, 'wb') as img_file:
+        img_file.write(data["image"])
 
-    del data['images']
+    del data['image']
     data['profile'] = img
     json_data[id] = data
     update_file(file, json_data)
