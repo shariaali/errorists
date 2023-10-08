@@ -1,0 +1,72 @@
+{
+    "oqRTH18H": {
+        "name": "sdfs",
+        "description": "df",
+        "skills": "Skill 4",
+        "collaborators": [],
+        "profile": "./files/images/projects/oqRTH18H.png"
+    },
+    "HAvSeRRY": {
+        "name": "Cloudspotting on Mars",
+        "description": "Clouds are both drivers and products of a planet\u2019s climate. How does this work on Mars? Join us as we unlock the secrets of the red planet\u2019s atmosphere, which is so different from Earth\u2019s.",
+        "skills": "Skill 1",
+        "collaborators": [],
+        "profile": "./files/images/projects/HAvSeRRY.png"
+    },
+    "IxJ2yd9n": {
+        "name": "Cloudspotting on Mars",
+        "description": "Clouds are both drivers and products of a planet\u2019s climate. How does this work on Mars? Join us as we unlock the secrets of the red planet\u2019s atmosphere, which is so different from Earth\u2019s.",
+        "skills": "Skill 1",
+        "collaborators": [],
+        "profile": "./files/images/projects/IxJ2yd9n.png"
+    },
+    "uumtQMbe": {
+        "name": "Cloudspotting on Mars",
+        "description": "Clouds are both drivers and products of a planet\u2019s climate. How does this work on Mars? Join us as we unlock the secrets of the red planet\u2019s atmosphere, which is so different from Earth\u2019s.",
+        "skills": "Skill 1",
+        "collaborators": [],
+        "profile": "./files/images/projects/uumtQMbe.png"
+    },
+    "hc3RHozS": {
+        "name": "McGill Pulse Breeding and Genetics Lab",
+        "description": "Our lab is undertaking research in understanding the epidemiology and genomics of host-pathogen interactions between the causal pathogen of white mold [Sclerotinia sclerotiorum (Lib. de Libary] and the common bean (Phaseolus vulgaris L.) This section is intended to to extend to you an invitation to partake in our research.",
+        "skills": "Skill 2",
+        "collaborators": [],
+        "profile": "./files/images/projects/hc3RHozS.png"
+    },
+    "McxheMui": {
+        "name": "EcoSensors",
+        "description": "EcoSensors is a project aimed at developing low-cost environmental sensors to monitor air and water quality. We are looking for collaborators with expertise in sensor technology, data analysis, and environmental science to help us create affordable and accessible tools for environmental monitoring.",
+        "skills": "Skill 3",
+        "collaborators": [],
+        "profile": "./files/images/projects/McxheMui.png"
+    },
+    "33mWXG2Y": {
+        "name": " BrainWave",
+        "description": " BrainWave is an open neuroscience project focused on studying brain signals and patterns. We welcome neuroscientists, data scientists, and engineers to join our team and contribute to the analysis of EEG data, with the goal of advancing our understanding of the brain.",
+        "skills": "Skill 4",
+        "collaborators": [],
+        "profile": "./files/images/projects/33mWXG2Y.png"
+    },
+    "1pOJkaHY": {
+        "name": " SpaceWatcher",
+        "description": " SpaceWatcher is a citizen science project that involves monitoring and cataloging celestial events and objects. We are searching for space enthusiasts, astronomers, and data visualization experts to assist in observing and documenting the wonders of the universe.",
+        "skills": "Skill 5",
+        "collaborators": [],
+        "profile": "./files/images/projects/1pOJkaHY.png"
+    },
+    "gWmi4Xeu": {
+        "name": " SpaceWatcher",
+        "description": " SpaceWatcher is a citizen science project that involves monitoring and cataloging celestial events and objects. We are searching for space enthusiasts, astronomers, and data visualization experts to assist in observing and documenting the wonders of the universe.",
+        "skills": "Skill 5",
+        "collaborators": [],
+        "profile": "./files/images/projects/gWmi4Xeu.png"
+    },
+    "tT2mJ8YG": {
+        "name": "BrainWave",
+        "description": "BrainWave is an open neuroscience project focused on studying brain signals and patterns. We welcome neuroscientists, data scientists, and engineers to join our team and contribute to the analysis of EEG data, with the goal of advancing our understanding of the brain.",
+        "skills": "Skill 4",
+        "collaborators": [],
+        "profile": "./files/images/projects/tT2mJ8YG.png"
+    }
+}
